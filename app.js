@@ -27,10 +27,21 @@ app.get("/about", function(req,res){
 //its common to have the key and value as the same
 });
 
-app.get("/Contact", function(req,res){
+app.get("/contact", function(req,res){
   res.render("contact", {contactContent:contactContent});
 });
 
+app.get("/compose", function(req,res){
+  res.render("compose");
+});
+
+app.post("/compose", function(req,res){
+  console.log(req.body.postTitle);
+  // req.body is asking for what the user input into our form
+  //postTitle comes from the name attribute on the input tag
+  //we had to change the button type to submit to let the Server
+  //know that we wanted to execute req.body
+});
 
 
 
