@@ -20,11 +20,18 @@ app.get("/", function(req,res){
     startingContent:homeStartingContent
     //we used the ejs tags <%= %> and set key in home.ejs
     //the value we got from our constant... no ; needed
+    //we made the key and value different to make it easier to see what is what
   });
 });
 
+app.get("/about", function(req,res){
+  res.render("about",{aboutContent:aboutContent});
+//its common to have the key and value as the same
+});
 
-
+app.get("/Contact", function(req,res){
+  res.render("contact", {contactContent:contactContent});
+});
 
 
 
