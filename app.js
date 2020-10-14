@@ -16,12 +16,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 app.get("/", function(req,res){
-  res.render("home",{
-    startingContent:homeStartingContent
+  res.render("home",{startingContent:homeStartingContent});
     //we used the ejs tags <%= %> and set key in home.ejs
     //the value we got from our constant... no ; needed
     //we made the key and value different to make it easier to see what is what
-  });
 });
 
 app.get("/about", function(req,res){
