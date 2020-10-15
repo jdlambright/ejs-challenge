@@ -36,7 +36,11 @@ app.get("/compose", function(req,res){
 });
 
 app.post("/compose", function(req,res){
-  console.log(req.body.postTitle);
+  console.log(req.body.postBody);
+  const post ={
+    title:req.body.postTitle,
+    content:req.body.postBody
+  };
   // req.body is asking for what the user input into our form
   //postTitle comes from the name attribute on the input tag
   //we had to change the button type to submit to let the Server
