@@ -62,10 +62,11 @@ app.post("/compose", function(req,res){
 
 app.get("/posts/:postName", function(req,res){
   const requestedTitle = req.params.postName;
+  // this says to make each title something that can be concatonated on url
 
   posts.forEach(function(post){
     const storedTitle = post.title;
-
+///this loops through all titles
     if (storedTitle === requestedTitle){
       console.log("match found")
     }
