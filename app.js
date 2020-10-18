@@ -19,11 +19,15 @@ app.use(express.static("public"));
 let posts = [];
 
 app.get("/", function(req,res){
-  res.render("home",{startingContent:homeStartingContent});
-  console.log(posts);
+  res.render("home",{
+    startingContent:homeStartingContent,
+    posts: posts
+
+  });
     //we used the ejs tags <%= %> and set key in home.ejs
     //the value we got from our constant... no ; needed
     //we made the key and value different to make it easier to see what is what
+
 });
 
 app.get("/about", function(req,res){
@@ -40,7 +44,6 @@ app.get("/compose", function(req,res){
 });
 
 app.post("/compose", function(req,res){
-  console.log(req.body.postBody);
   const post ={
     title:req.body.postTitle,
     content:req.body.postBody
@@ -49,8 +52,10 @@ app.post("/compose", function(req,res){
   //postTitle comes from the name attribute on the input tag
   //we had to change the button type to submit to let the Server
   //know that we wanted to execute req.body
-  posts.push(posts);
+  posts.push(post);
   res.redirect("/");
+  // this takes what we type into our empty array and pushes it to our home route
+
 });
 
 
