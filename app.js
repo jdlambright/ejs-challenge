@@ -71,13 +71,17 @@ app.get("/posts/:postName", function(req,res){
     const storedTitle = _.lowerCase(post.title);
 ///this loops through all titles
     if (storedTitle === requestedTitle){
-      console.log("match found")
-    }else{
-      console.log("not a match")
+      res.render("post",{
+        title: post.title,
+        content:post.content
+      });
     }
   });
-})
-//this allows the url to be dynamic
+
+});
+//this whole section allows the url to be dynamic
+
+
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");
