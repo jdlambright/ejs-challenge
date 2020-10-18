@@ -10,13 +10,17 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rho
 
 const app = express();
 
+
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
+let posts = [];
+
 app.get("/", function(req,res){
   res.render("home",{startingContent:homeStartingContent});
+  console.log(posts);
     //we used the ejs tags <%= %> and set key in home.ejs
     //the value we got from our constant... no ; needed
     //we made the key and value different to make it easier to see what is what
@@ -45,6 +49,8 @@ app.post("/compose", function(req,res){
   //postTitle comes from the name attribute on the input tag
   //we had to change the button type to submit to let the Server
   //know that we wanted to execute req.body
+  posts.push(posts);
+  res.redirect("/");
 });
 
 
