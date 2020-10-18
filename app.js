@@ -30,6 +30,7 @@ app.get("/", function(req,res){
 
 });
 
+
 app.get("/about", function(req,res){
   res.render("about",{aboutContent:aboutContent});
 //its common to have the key and value as the same
@@ -59,11 +60,18 @@ app.post("/compose", function(req,res){
 });
 
 
+app.get("/posts/:postName", function(req,res){
+  const requestedTitle = req.params.postName;
 
+  posts.forEach(function(post){
+    const storedTitle = post.title;
 
-
-
-
+    if (storedTitle === requestedTitle){
+      console.log("match found")
+    }
+  });
+})
+//this allows the url to be dynamic
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");
