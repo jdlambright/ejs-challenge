@@ -80,7 +80,7 @@ app.get("/posts/:postName", function(req,res){
 
 });
 //this whole section allows the url to be dynamic
-
+// to truncate content use substring metod in home.ejs
 
 
 app.listen(3000, function() {
